@@ -1,0 +1,39 @@
+<resources>
+    <bool name="isPhone">false</bool>
+
+    <string name="app_name">Popular Movies</string>
+
+    <string name="menu_most_popular">Most Popular</string>
+    <string name="menu_highest_rated">Highest Rated</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_movie">Movie</string>
+
+    <string name="url_themoviedb_base">https://api.themoviedb.org/3/movie/</string>
+    <string name="url_themoviedb_base_image">http://image.tmdb.org/t/p/</string>
+    <string name="url_themoviedb_base_trailer">https://api.themoviedb.org/3/movie/%s/trailers</string>
+    <string name="url_themoviedb_base_review">https://api.themoviedb.org/3/movie/%s/reviews</string>
+    <string name="url_youtube_image">http://img.youtube.com/vi/</string>
+    <string name="url_youtube_launch">https://www.youtube.com/watch?v=</string>
+    <string name="youtube_first_image">0.jpg</string>
+    <string name="param_api_key">api_key</string>
+    <string name="sort_by_popular">popular</string>
+    <string name="sort_by_highest_rated">top_rated</string>
+    <string name="poster_size">w185</string>
+    <string name="poster_size_detail">w342</string>
+    <string name="backdrop_size">w780</string>
+    <string name="full_rating_point">10</string>
+
+    <string name="detail_title">Detail</string>
+    <string name="overview_title">Overview</string>
+    <string name="trailers_title">Trailers</string>
+    <string name="reviews_title">Reviews</string>
+
+    <string name="intent_object_movie_data">currentMovie</string>
+
+    <string name="state_sort_order">sort_order</string>
+    <string name="state_grid_view_position">state_grid_position</string>
+    <string name="state_action_sort_order">state_action_sort_order</string>
+
+    <string name="error_message_no_internet_connection">No Internet Connection</string>
+    <string name="error_message_no_data">No data</string>
+</resources>

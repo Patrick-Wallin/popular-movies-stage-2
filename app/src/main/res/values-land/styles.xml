@@ -1,0 +1,32 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.PopupMenu</item>
+    </style>
+    <!-- it will not show any color in action bar (transparent) -->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
+    <!-- This will not show action bar when it is in portrait -->
+    <style name="DetailAppTheme" parent="AppTheme" />
+
+    <!-- Different style for popup menu -->
+    <style name="ThemeOverlay.AppCompat.PopupMenu" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:colorBackground">@android:color/holo_blue_dark</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+    <style name="SelectedSort">
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="UnSelectedSort">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+</resources>
