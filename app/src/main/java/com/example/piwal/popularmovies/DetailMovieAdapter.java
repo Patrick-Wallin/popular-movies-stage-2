@@ -111,6 +111,19 @@ public class DetailMovieAdapter extends RecyclerView.Adapter<DetailMovieAdapterV
                 holder.mFavoriteImageButton.setBackgroundResource(R.drawable.ic_unfavorite_star);
             }
 
+            /*
+            if(!mContext.getResources().getBoolean(R.bool.isPhone)) {
+                holder.mPosterImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(holder.mTrailersReviewsLinearLayout.getVisibility() == View.VISIBLE) {
+                            holder.mTrailersReviewsLinearLayout.setVisibility(View.INVISIBLE);
+
+                        }
+                    }
+                });
+            }
+            */
             holder.mFavoriteImageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

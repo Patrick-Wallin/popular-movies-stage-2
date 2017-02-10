@@ -8,7 +8,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 
 import com.example.piwal.popularmovies.data.MovieData;
 import com.example.piwal.popularmovies.utilities.NetworkUtils;
@@ -38,14 +40,19 @@ public class MainActivity extends AppCompatActivity {
 
         boolean isThisPhone = getResources().getBoolean(R.bool.isPhone);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE || !isThisPhone) {
+        // || !isThisPhone
+        if(!isThisPhone)
+            gridLayoutManager.setSpanCount(4);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ) {
             gridLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
-            gridLayoutManager.setSpanCount(1);
+            //if(isThisPhone) {
+                gridLayoutManager.setSpanCount(1);
+            //}
         }
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
         if (mPopularMovieAdapter == null) {
-            mPopularMovieAdapter = new PopularMovieAdapter(new ArrayList<MovieData>(), this);
+            mPopularMovieAdapter = new PopularMovieAdapter(new ArrayList<MovieData>(), this, (FrameLayout) findViewById(R.id.activity_main));
         }
         mRecyclerView.setAdapter(mPopularMovieAdapter);
 

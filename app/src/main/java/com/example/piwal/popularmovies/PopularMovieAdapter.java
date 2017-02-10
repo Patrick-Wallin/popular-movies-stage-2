@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.example.piwal.popularmovies.data.MovieData;
 import com.example.piwal.popularmovies.utilities.NetworkUtils;
@@ -25,10 +26,12 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
     private ArrayList<MovieData> mMovies;
     private Context mContext;
     private int SORT = NetworkUtils.SORT_MOST_POPULAR;
+    private FrameLayout mFrameLayout;
 
-    public PopularMovieAdapter(ArrayList<MovieData> movies, Context context) {
+    public PopularMovieAdapter(ArrayList<MovieData> movies, Context context, FrameLayout frameLayout) {
         mMovies = movies;
         mContext = context;
+        mFrameLayout = frameLayout;
     }
 
     @Override
@@ -73,13 +76,29 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
                     }else {
                         Bundle movieDetails = new Bundle();
                         movieDetails.putParcelable(mContext.getResources().getString(R.string.intent_object_movie_data), movie);
-                        DetailActivityFragment detailActivityFragment = new DetailActivityFragment();
-                        detailActivityFragment.setArguments(movieDetails);
+                        TopDetailActivityFragment topDetailActivityFragment = new TopDetailActivityFragment();
+                        topDetailActivityFragment.setArguments(movieDetails);
+                        ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.activity_detail_container, topDetailActivityFragment).commit();
 
-                        ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.activity_detail_container, detailActivityFragment).commit();
                     }
+
                 }
             });
+
+
+            if(position == 0 &&  !mContext.getResources().getBoolean(R.bool.isPhone)) {
+                if(((FragmentActivity)mContext).getSupportFragmentManager().findFragmentById(R.id.activity_detail_container) == null) {
+                    Bundle movieDetails = new Bundle();
+                    movieDetails.putParcelable(mContext.getResources().getString(R.string.intent_object_movie_data), movie);
+                    TopDetailActivityFragment topDetailActivityFragment = new TopDetailActivityFragment();
+                    topDetailActivityFragment.setArguments(movieDetails);
+
+                    ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.activity_detail_container, topDetailActivityFragment).commit();
+
+                }
+
+            }
+
 
         }
     }

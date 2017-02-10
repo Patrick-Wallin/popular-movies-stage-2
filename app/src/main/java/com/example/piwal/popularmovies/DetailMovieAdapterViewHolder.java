@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -31,6 +32,8 @@ public class DetailMovieAdapterViewHolder extends RecyclerView.ViewHolder {
     final RecyclerView mTrailerRecyclerView;
     final RecyclerView mReviewRecyclerView;
 
+    //final LinearLayout mTrailersReviewsLinearLayout;
+
 
     public DetailMovieAdapterViewHolder(View itemView) {
         super(itemView);
@@ -48,6 +51,8 @@ public class DetailMovieAdapterViewHolder extends RecyclerView.ViewHolder {
         mFavoriteImageButton = (ImageButton) itemView.findViewById(R.id.favorite_image_button);
 
         mTrailerRecyclerView = (RecyclerView) itemView.findViewById(R.id.trailers_recycler_view);
+
+        //mTrailersReviewsLinearLayout = (LinearLayout) itemView.findViewById(R.id.trailers_reviews_linear_layout);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(itemView.getContext(), 1);
         gridLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
