@@ -128,4 +128,16 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
         notifyDataSetChanged();
     }
 
+    public void refreshTopDetail() {
+        if(mContext != null && !mContext.getResources().getBoolean(R.bool.isPhone)) {
+            if(((FragmentActivity)mContext).getSupportFragmentManager().findFragmentById(R.id.activity_detail_container) != null) {
+                //Bundle movieDetails = new Bundle();
+                //movieDetails.putParcelable(mContext.getResources().getString(R.string.intent_object_movie_data), movie);
+                //TopDetailActivityFragment topDetailActivityFragment = new TopDetailActivityFragment();
+                //topDetailActivityFragment.setArguments(movieDetails);
+                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().commitNow();
+            }
+        }
+
+    }
 }

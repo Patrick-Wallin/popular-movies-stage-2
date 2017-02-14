@@ -63,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if(mPopularMovieAdapter != null)
+            mPopularMovieAdapter.refreshTopDetail();
+    }
+
+
+    @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         currentSortOrder = savedInstanceState.getInt(getString(R.string.state_sort_order));
