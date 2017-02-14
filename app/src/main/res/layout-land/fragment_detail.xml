@@ -94,6 +94,12 @@
         </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/backdrop_title_text_view"
+        android:text="@string/backdrop_title"
+        style="@style/detail_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/backdrop_image_view"

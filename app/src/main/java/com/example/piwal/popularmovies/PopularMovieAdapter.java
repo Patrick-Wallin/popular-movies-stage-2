@@ -86,8 +86,9 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
             });
 
 
-            if(position == 0 &&  !mContext.getResources().getBoolean(R.bool.isPhone)) {
-                if(((FragmentActivity)mContext).getSupportFragmentManager().findFragmentById(R.id.activity_detail_container) == null) {
+
+            if(position == 0 && !mContext.getResources().getBoolean(R.bool.isPhone)) {
+                //if(((FragmentActivity)mContext).getSupportFragmentManager().findFragmentById(R.id.activity_detail_container) == null) {
                     Bundle movieDetails = new Bundle();
                     movieDetails.putParcelable(mContext.getResources().getString(R.string.intent_object_movie_data), movie);
                     TopDetailActivityFragment topDetailActivityFragment = new TopDetailActivityFragment();
@@ -95,7 +96,7 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
 
                     ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.activity_detail_container, topDetailActivityFragment).commit();
 
-                }
+                //}
 
             }
 

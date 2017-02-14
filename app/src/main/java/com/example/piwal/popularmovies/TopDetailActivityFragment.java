@@ -50,7 +50,7 @@ public class TopDetailActivityFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_detail_fragment,container,false);
+        View rootView = inflater.inflate(R.layout.activity_top_detail_fragment,container,false);
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.detail_recycler_view);
 

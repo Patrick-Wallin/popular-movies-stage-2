@@ -27,6 +27,7 @@
     <string name="overview_title">Overview</string>
     <string name="trailers_title">Trailers</string>
     <string name="reviews_title">Reviews</string>
+    <string name="backdrop_title">Backdrop</string>
 
     <string name="intent_object_movie_data">currentMovie</string>
 

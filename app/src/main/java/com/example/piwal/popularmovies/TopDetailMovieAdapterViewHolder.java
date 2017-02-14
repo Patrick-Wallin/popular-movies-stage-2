@@ -2,6 +2,7 @@ package com.example.piwal.popularmovies;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -13,6 +14,9 @@ import android.widget.TextView;
 public class TopDetailMovieAdapterViewHolder extends RecyclerView.ViewHolder {
     final ImageView mBackdropImageView;
     final ImageView mPosterImageView;
+
+    final ImageButton mFavoriteImageButton;
+
     final TextView mTitleTextView;
     final TextView mReleaseDateTextView;
     final TextView mRatingTextView;
@@ -30,6 +34,8 @@ public class TopDetailMovieAdapterViewHolder extends RecyclerView.ViewHolder {
         mRatingTextView = (TextView) itemView.findViewById(R.id.rating_text_view);
 
         mRatingBar = (RatingBar) itemView.findViewById(R.id.rating_rating_bar);
+
+        mFavoriteImageButton = (ImageButton) itemView.findViewById(R.id.favorite_image_button);
 
     }
 

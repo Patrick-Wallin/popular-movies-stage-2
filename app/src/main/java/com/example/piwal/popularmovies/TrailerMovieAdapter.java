@@ -57,6 +57,8 @@ public class TrailerMovieAdapter extends RecyclerView.Adapter<TrailerMovieAdapte
             imagePath.append("/");
             imagePath.append(mContext.getString(R.string.youtube_first_image));
 
+
+            System.out.println(imagePath.toString());
             Picasso.with(mContext).setLoggingEnabled(true);
             Picasso.with(mContext)
                     .load(imagePath.toString())

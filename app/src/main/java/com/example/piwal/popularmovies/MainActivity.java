@@ -40,15 +40,18 @@ public class MainActivity extends AppCompatActivity {
 
         boolean isThisPhone = getResources().getBoolean(R.bool.isPhone);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        // || !isThisPhone
+
         if(!isThisPhone)
             gridLayoutManager.setSpanCount(4);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ) {
-            gridLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
-            //if(isThisPhone) {
+            if(isThisPhone) {
+                gridLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
                 gridLayoutManager.setSpanCount(1);
-            //}
+            }else {
+                gridLayoutManager.setSpanCount(2);
+            }
         }
+
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
         if (mPopularMovieAdapter == null) {
@@ -106,11 +109,9 @@ public class MainActivity extends AppCompatActivity {
             switch (itemThatWasClickedId) {
                 case R.id.action_sort_most_popular:
                     loadMovieData(NetworkUtils.SORT_MOST_POPULAR);
-                    //getSupportActionBar().setSubtitle(R.string.menu_most_popular);
                     return true;
                 case R.id.action_sort_highest_rated:
                     loadMovieData(NetworkUtils.SORT_HIGHEST_RATED);
-                    //getSupportActionBar().setSubtitle(R.string.menu_highest_rated);
                     return true;
                 case R.id.action_favorite:
                     loadMovieData(NetworkUtils.SORT_FAVORITES);

@@ -9,8 +9,8 @@
     android:orientation="vertical">
 
     <ImageView
+        android:layout_centerInParent="true"
         android:id="@+id/backdrop_image_view"
-        android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -18,12 +18,13 @@
     <ImageView
         android:background="@android:color/white"
         android:id="@+id/detail_poster_image_view"
+        android:layout_alignParentTop="true"
         android:scaleType="fitXY"
-        android:layout_alignTop="@+id/backdrop_image_view"
         android:padding="2dp"
         android:layout_margin="6dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
 
     <LinearLayout
         android:layout_toRightOf="@+id/detail_poster_image_view"
