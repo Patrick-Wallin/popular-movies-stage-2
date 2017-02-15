@@ -32,9 +32,6 @@ public class DetailMovieAdapterViewHolder extends RecyclerView.ViewHolder {
     final RecyclerView mTrailerRecyclerView;
     final RecyclerView mReviewRecyclerView;
 
-    //final LinearLayout mTrailersReviewsLinearLayout;
-
-
     public DetailMovieAdapterViewHolder(View itemView) {
         super(itemView);
 
@@ -51,8 +48,6 @@ public class DetailMovieAdapterViewHolder extends RecyclerView.ViewHolder {
         mFavoriteImageButton = (ImageButton) itemView.findViewById(R.id.favorite_image_button);
 
         mTrailerRecyclerView = (RecyclerView) itemView.findViewById(R.id.trailers_recycler_view);
-
-        //mTrailersReviewsLinearLayout = (LinearLayout) itemView.findViewById(R.id.trailers_reviews_linear_layout);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(itemView.getContext(), 1);
         gridLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);

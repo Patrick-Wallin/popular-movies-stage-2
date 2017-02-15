@@ -38,7 +38,6 @@ public class MoviesLoaderManager implements LoaderManager.LoaderCallbacks<Cursor
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        System.out.println("onLoadFinished");
         mPopularMovieAdapter.setMovieData(data);
     }
 

@@ -66,4 +66,10 @@ public class TopDetailActivityFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mTopDetailMovieAdapter.notifyDataSetChanged();
+    }
+
 }

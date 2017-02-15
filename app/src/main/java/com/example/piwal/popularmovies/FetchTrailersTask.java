@@ -60,20 +60,7 @@ public class FetchTrailersTask extends AsyncTask<Void, Void, List<TrailerData>> 
     protected void onPostExecute(List<TrailerData> trailerData) {
         if(trailerData != null) {
             mTrailerMovieAdapter.setTrailerData(trailerData);
-            if(trailerData.size() > 0) {
-                //if(mPosition != -1)
-                  //  ((GridLayoutManager)recyclerView.getLayoutManager()).scrollToPosition(mPosition);
-            }else {
-                //recyclerView.setVisibility(View.INVISIBLE);
-                //progressBar.setVisibility(View.INVISIBLE);
-                //errorMessageTextView.setText(mContext.getString(R.string.error_message_no_data));
-                //errorMessageTextView.setVisibility(View.VISIBLE);
-            }
         }else {
-            //recyclerView.setVisibility(View.INVISIBLE);
-            //progressBar.setVisibility(View.INVISIBLE);
-            //errorMessageTextView.setText(mContext.getString(R.string.error_message_no_internet_connection));
-            //errorMessageTextView.setVisibility(View.VISIBLE);
         }
 
     }

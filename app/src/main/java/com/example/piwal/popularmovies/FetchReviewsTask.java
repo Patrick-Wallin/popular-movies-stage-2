@@ -58,20 +58,7 @@ public class FetchReviewsTask extends AsyncTask<Void,Void,List<ReviewData>> {
     protected void onPostExecute(List<ReviewData> reviewData) {
         if(reviewData != null) {
             mReviewMovieAdapter.setReviewData(reviewData);
-            if(reviewData.size() > 0) {
-                //if(mPosition != -1)
-                //  ((GridLayoutManager)recyclerView.getLayoutManager()).scrollToPosition(mPosition);
-            }else {
-                //recyclerView.setVisibility(View.INVISIBLE);
-                //progressBar.setVisibility(View.INVISIBLE);
-                //errorMessageTextView.setText(mContext.getString(R.string.error_message_no_data));
-                //errorMessageTextView.setVisibility(View.VISIBLE);
-            }
         }else {
-            //recyclerView.setVisibility(View.INVISIBLE);
-            //progressBar.setVisibility(View.INVISIBLE);
-            //errorMessageTextView.setText(mContext.getString(R.string.error_message_no_internet_connection));
-            //errorMessageTextView.setVisibility(View.VISIBLE);
         }
 
     }

@@ -39,19 +39,5 @@ public class MovieContract {
         public static final int COL_MOVIE_VOTE_COUNT = 8;
         public static final int COL_MOVIE_BACKDROP_PATH = 9;
 
-        /*
-        public static final String[] MOVIE_COLUMNS = {
-                "_ID",
-                COLUMN_MOVIE_ID,
-                COLUMN_MOVIE_TITLE,
-                COLUMN_MOVIE_POSTER_PATH,
-                COLUMN_MOVIE_OVERVIEW,
-                COLUMN_MOVIE_USER_RATING,
-                COLUMN_MOVIE_POPULARITY,
-                COLUMN_MOVIE_RELEASE_DATE,
-                COLUMN_MOVIE_VOTE_COUNT,
-                COLUMN_MOVIE_BACKDROP_PATH
-        };
-        */
     }
 }

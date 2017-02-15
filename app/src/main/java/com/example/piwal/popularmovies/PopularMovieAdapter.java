@@ -1,10 +1,13 @@
 package com.example.piwal.popularmovies;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +16,7 @@ import android.widget.FrameLayout;
 
 import com.example.piwal.popularmovies.data.MovieData;
 import com.example.piwal.popularmovies.utilities.NetworkUtils;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -63,7 +67,10 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
                     imagePath.append("/");
                 imagePath.append(mContext.getString(R.string.poster_size));
                 imagePath.append(posterPath);
-                Picasso.with(mContext).load(imagePath.toString()).into(holder.mPosterImageView);
+                Picasso.with(mContext)
+                        .load(imagePath.toString())
+                        .placeholder(R.drawable.default_image)
+                        .into(holder.mPosterImageView);
             }
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -86,20 +93,26 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
             });
 
 
-
             if(position == 0 && !mContext.getResources().getBoolean(R.bool.isPhone)) {
-                //if(((FragmentActivity)mContext).getSupportFragmentManager().findFragmentById(R.id.activity_detail_container) == null) {
-                    Bundle movieDetails = new Bundle();
-                    movieDetails.putParcelable(mContext.getResources().getString(R.string.intent_object_movie_data), movie);
-                    TopDetailActivityFragment topDetailActivityFragment = new TopDetailActivityFragment();
-                    topDetailActivityFragment.setArguments(movieDetails);
+                Bundle movieDetails = new Bundle();
+                movieDetails.putParcelable(mContext.getResources().getString(R.string.intent_object_movie_data), movie);
+                TopDetailActivityFragment topDetailActivityFragment = new TopDetailActivityFragment();
+                topDetailActivityFragment.setArguments(movieDetails);
 
-                    ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.activity_detail_container, topDetailActivityFragment).commit();
-
-                //}
-
+                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.activity_detail_container, topDetailActivityFragment).commit();
             }
 
+
+        }else {
+            // need to clear it up
+            if(!mContext.getResources().getBoolean(R.bool.isPhone)) {
+                Bundle movieDetails = new Bundle();
+                movieDetails.putParcelable(mContext.getResources().getString(R.string.intent_object_movie_data), null);
+                TopDetailActivityFragment topDetailActivityFragment = new TopDetailActivityFragment();
+                topDetailActivityFragment.setArguments(movieDetails);
+
+                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.activity_detail_container, topDetailActivityFragment).commit();
+            }
 
         }
     }
@@ -128,16 +141,4 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
         notifyDataSetChanged();
     }
 
-    public void refreshTopDetail() {
-        if(mContext != null && !mContext.getResources().getBoolean(R.bool.isPhone)) {
-            if(((FragmentActivity)mContext).getSupportFragmentManager().findFragmentById(R.id.activity_detail_container) != null) {
-                //Bundle movieDetails = new Bundle();
-                //movieDetails.putParcelable(mContext.getResources().getString(R.string.intent_object_movie_data), movie);
-                //TopDetailActivityFragment topDetailActivityFragment = new TopDetailActivityFragment();
-                //topDetailActivityFragment.setArguments(movieDetails);
-                ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().commitNow();
-            }
-        }
-
-    }
 }
